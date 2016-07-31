@@ -128,6 +128,47 @@ struct list {
     int size() {
         return _size;
     }
+
+    int sum() {
+        node* s_node = head;
+        int _sum = 0;
+        while (s_node) {
+            _sum += s_node->value;
+            s_node = s_node->next;
+        }
+        return _sum;
+    }
+
+    int prod() {
+        node* prod_node = head;
+        int _prod = 1;
+        while (prod_node) {
+            _prod *= prod_node->value;
+            prod_node = prod_node->next;
+        }
+        return _prod;
+    }
+
+    int sum_sq() {
+        node* sq_node = head;
+        int _sum_sq = 0;
+        while (sq_node) {
+            _sum_sq += sq_node->value * sq_node->value;
+            sq_node = sq_node->next;
+        }
+        return _sum_sq;
+    }
+
+    list reverse_copy() {
+        list result;
+        node* new_node = head;
+        while (new_node) {
+            result.push_front(new_node->value);
+            new_node = new_node->next;
+        }
+        return result;
+    }
+
 };
 
 int main() {
@@ -138,8 +179,8 @@ int main() {
     //l.print();
     l.push_front(3);
     cout << "l.get(2) = " << l.get(2) << "\n";
-    cout << "l.pop_back() = " << l.pop_back() << "\n";
-    cout <<  "l.pop_front() = " << l.pop_front() << "\n";
+    //cout << "l.pop_back() = " << l.pop_back() << "\n";
+    //cout <<  "l.pop_front() = " << l.pop_front() << "\n";
     l.print();
 //    l.pop_front();
 //    try {
@@ -148,6 +189,11 @@ int main() {
 //        cout << "exception occured: " << ex << "\n";
 //        return -1;
 //    }
+    list l1 = l.reverse_copy();
+    l1.print();
+    cout << "l.sum_sq() = " << l.sum_sq() << "\n";
+    cout << "l.prod() = " << l.prod() << "\n";
+    cout << "l.sum() = " << l.sum() << "\n";
     cout << "l.size() = " << l.size() << "\n";
     return 0;
 }
