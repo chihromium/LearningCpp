@@ -52,7 +52,7 @@ struct list {
             node* next_new_node = new_node;
             delete new_node;
             new_node = next_new_node->next;
-            cout << "delete element from list \n";
+            //cout << "delete element from list \n";
         }
     }
 
